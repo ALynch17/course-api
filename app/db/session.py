@@ -5,14 +5,14 @@ from app.core.config import settings
 engine = create_async_engine(
     settings.DATABASE_URL,
     pool_size=2,
-    max_overflow=2,
+    max_overflow=0,
     echo=settings.DEBUG,
     pool_recycle=300,
     pool_pre_ping=False,
-    connect_args={
-        "statement_cache_size": 0,
-        "prepared_statement_cache_size": 0,
-    },
+    #connect_args={
+        #"statement_cache_size": 0,
+        #"prepared_statement_cache_size": 0,
+    #},
 )
 
 AsyncSessionLocal = async_sessionmaker(

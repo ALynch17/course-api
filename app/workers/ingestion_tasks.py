@@ -54,10 +54,10 @@ def get_db_session():
         pool_size=1,
         max_overflow=0,
         #pool_pre_ping=True,
-        connect_args={
-            "statement_cache_size": 0,
-            "prepared_statement_cache_size": 0,
-        },
+        #connect_args={
+            #"statement_cache_size": 0,
+            #"prepared_statement_cache_size": 0,
+        #},
     )
     return async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 
@@ -258,6 +258,7 @@ def embed_and_index_document(self, _results, document_id: str, job_id: str, cour
     log.info("embed_and_index_start", document_id=document_id)
 
     async def _run():
+        await asyncio.sleep(3)  # wait for page worker connections to release
         SessionLocal = get_db_session()
         async with SessionLocal() as db:
             job = await db.get(IngestionJob, uuid.UUID(job_id))
