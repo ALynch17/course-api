@@ -51,8 +51,8 @@ def get_db_session():
     from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
     engine = create_async_engine(
         settings.DATABASE_URL,
-        pool_size=2,
-        max_overflow=2,
+        pool_size=1,
+        max_overflow=1,
         pool_pre_ping=True,
         connect_args={
             "statement_cache_size": 0,
