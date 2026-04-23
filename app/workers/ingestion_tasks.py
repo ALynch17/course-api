@@ -52,8 +52,8 @@ def get_db_session():
     engine = create_async_engine(
         settings.DATABASE_URL,
         pool_size=1,
-        max_overflow=1,
-        pool_pre_ping=True,
+        max_overflow=0,
+        #pool_pre_ping=True,
         connect_args={
             "statement_cache_size": 0,
             "prepared_statement_cache_size": 0,
