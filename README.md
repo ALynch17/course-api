@@ -8,6 +8,7 @@ A backend API that ingests lecture materials and powers AI-driven quiz generatio
 
 **API:** https://course-api-production.up.railway.app
 **Documentation:** https://course-api-production.up.railway.app/docs
+**Demo Video:** https://drive.google.com/file/d/1rHNQqz2_9rqFkzb7q5TLGETvDP0K_MLr/view?usp=sharing 
 
 No setup required
 
