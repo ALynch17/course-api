@@ -9,7 +9,11 @@ engine = create_async_engine(
     echo=settings.DEBUG,
     pool_recycle=300,
     pool_pre_ping=True,
-    connect_args={"statement_cache_size": 0},
+    execution_options={"compiled_cache": None},
+    connect_args={
+        "statement_cache_size": 0,
+        "prepared_statement_cache_size": 0,
+    },
 )
 
 AsyncSessionLocal = async_sessionmaker(
